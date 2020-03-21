@@ -1,0 +1,17 @@
+{
+    "protocol": "http",
+    "address": "twtegypt.com",
+    "port": "",
+    "path": "/dashboard",
+    "services": {
+        "user": {
+            "path": "/user",
+            "functions": {
+                "login": {
+                    "path": "/login.php",
+                    "method": "POST"
+                }
+            }
+        }
+    }
+}
