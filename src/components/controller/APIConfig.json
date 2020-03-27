@@ -2,7 +2,7 @@
     "protocol": "http",
     "address": "twtegypt.com",
     "port": "",
-    "path": "/dashboard",
+    "path": "/api",
     "services": {
         "user": {
             "path": "/user",

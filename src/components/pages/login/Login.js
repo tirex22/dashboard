@@ -23,7 +23,7 @@ export default class Login extends Component {
         this.setState({ password: event.target.value })
     }
 
-    onSubmit = () => {
+    login = () => {
         this.setState({ loading: true })
 
         const payload = { username: this.state.username, password: this.state.password }
@@ -34,8 +34,9 @@ export default class Login extends Component {
                     this.setState({ loading: false, error: response.error })
                 } else {
                     this.setState({ error: '' })
+                    localStorage.setItem('account', JSON.stringify(response))
+                    window.location.href = '/devices'
                 }
-                console.log(response)
             })
 
             .catch(error => {
@@ -44,9 +45,15 @@ export default class Login extends Component {
             })
     }
 
+    _handleKeyDown = (e) => {
+        if (e.key === 'Enter') {
+            this.login()
+        }
+    }
+
     render() {
         return (
-            <div className='page'>
+            <div onKeyDown={this._handleKeyDown} className='page'>
                 <div className='row' style={{ marginTop: '7%' }} >
                     <div className='card neumorphic col-sm-12 col-lg-4 offset-lg-4'>
 
@@ -74,7 +81,7 @@ export default class Login extends Component {
                             style={styles.submitButton}
                             text='Log In'
                             loading={this.state.loading}
-                            onClick={this.onSubmit} />
+                            onClick={this.login} />
 
                     </div>
                 </div>
