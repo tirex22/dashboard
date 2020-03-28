@@ -50,7 +50,12 @@ export default class Devices extends Component {
         return (
             <div className='page'>
                 <div class='row justify-content-center'>
-                    {this.renderDeviceCards()}
+                    {
+                        this.state.loading ?
+                            <div className='loader' />
+                            :
+                            this.renderDeviceCards()
+                    }
                 </div>
             </div>
         )

@@ -22,13 +22,14 @@
     outline: none;
   }
 
-  .loader {
+  .button .loader{
     border: 3px solid rgba(255,255,255,0.1); /* Light grey */
     border-top: 3px solid #fff; /* Blue */
     border-radius: 50%;
     width: 25px;
     height: 25px;
     animation: spin 1s linear infinite;
+    margin-top: 0!important;
   }
   
   @keyframes spin {
