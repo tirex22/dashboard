@@ -10,6 +10,10 @@
                 "login": {
                     "path": "/login.php",
                     "method": "POST"
+                },
+                "getDevices": {
+                    "path": "/devices.php",
+                    "method": "GET"
                 }
             }
         }

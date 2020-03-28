@@ -1,0 +1,87 @@
+.device-card-container{
+    padding:20px;
+    animation: slide-up 0.4s ease;
+}
+
+.device-card-container :hover{
+    transform: scale(1.1);
+}  
+
+.device-card{
+    width:100%;
+    border-radius: 10px;
+    margin-bottom:20px;
+    padding:20px;
+    transition: transform .1s;
+    animation: slide-up 0.4s ease;
+}
+
+.device-card :hover{
+    transform: scale(1)!important;
+}
+
+.device-card p{
+    margin:0
+}
+
+.device-card .device-header{
+    display: flex;
+    border-bottom: solid 0.5px #e6e6e6;
+    padding: 0px 0px 10px 0px;
+}
+
+.device-card .device-header .last-active{
+    font-weight:600;
+    font-size:8pt;
+    color: #999;
+}
+
+.device-card .device-header .good{
+    color: rgb(16, 194, 84);
+    font-weight: 700;
+}
+
+.device-card .device-info-container{
+    display: flex;
+    /* border-bottom: solid 0.5px #e6e6e6; */
+    padding: 10px 0px 0px 0px;
+}
+
+.device-card .device-info-container .device-info{
+    width: calc(100% - 45px);
+}
+
+.device-card .device-info-container .device-info .site-name{
+    font-weight:800;
+    font-size:12pt;
+}
+
+.device-card .device-info-container .device-info .device-id{
+    font-weight:500;
+    font-size:12pt;
+}
+
+.device-card .device-info-container .device-info .crop-name{
+    font-weight:300;
+    font-size:12pt;
+}
+
+.device-card .device-info-container .crop-icon{
+    height:45px;
+    width:45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@keyframes slide-up {
+    0% {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

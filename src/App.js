@@ -1,6 +1,4 @@
 import React from 'react';
-
-import { Login } from './components/pages'
 import Router from './components/pages/Router'
 
 function App() {

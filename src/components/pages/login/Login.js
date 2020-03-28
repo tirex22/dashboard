@@ -2,8 +2,6 @@ import React, { Component } from 'react'
 import { Button } from '../../atoms'
 import { request } from '../../controller/RequestHandler'
 
-const logo = require('../../../logo.png')
-
 export default class Login extends Component {
     constructor() {
         super()
