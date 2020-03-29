@@ -1,0 +1,20 @@
+.nav-page{
+    width: 100%;
+    background-color: #f4f4f4;
+    padding:120px 50px 0px 50px;
+  }
+  
+  @media only screen and (max-width: 600px) {
+    .nav-page {
+      padding:120px 20px 0px 20px;  }
+  }
+
+  .nav-page .loader{
+        border: 4px solid rgba(36,178,255,1);
+        border-top: 4px solid #f4f4f4; 
+        border-radius: 50%;
+        width: 60px;
+        height: 60px;
+        margin-top:calc(25% - 80px);
+        animation: spin 1s linear infinite;
+  }

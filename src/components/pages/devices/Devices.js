@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { request } from '../../controller/RequestHandler'
 
 import { DeviceCard } from '../../molecules'
+import { NavPage } from '../../templates'
 
 export default class Devices extends Component {
     constructor() {
@@ -37,10 +38,12 @@ export default class Devices extends Component {
     renderDeviceCards = () => {
         return (
             this.state.devices.map(device => {
-                if (device.removalDate === '') {
+                if (device.deviceState === 'active') {
                     return (
-                        <DeviceCard {...device} />
+                        <DeviceCard key={device.id} {...device} />
                     )
+                } else {
+                    return null
                 }
             })
         )
@@ -48,8 +51,8 @@ export default class Devices extends Component {
 
     render() {
         return (
-            <div className='page'>
-                <div class='row justify-content-center'>
+            <NavPage>
+                <div className='row justify-content-center'>
                     {
                         this.state.loading ?
                             <div className='loader' />
@@ -57,7 +60,7 @@ export default class Devices extends Component {
                             this.renderDeviceCards()
                     }
                 </div>
-            </div>
+            </NavPage>
         )
     }
 }

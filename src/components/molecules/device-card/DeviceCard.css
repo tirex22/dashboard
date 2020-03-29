@@ -1,5 +1,6 @@
 .device-card-container{
     padding:20px;
+    padding-bottom: 0;
     animation: slide-up 0.4s ease;
 }
 
