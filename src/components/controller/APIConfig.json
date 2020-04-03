@@ -16,6 +16,15 @@
                     "method": "GET"
                 }
             }
+        },
+        "device": {
+            "path": "/device",
+            "functions": {
+                "getLastReadings": {
+                    "path": "/lastReading.php",
+                    "method": "GET"
+                }
+            }
         }
     }
 }

@@ -26,8 +26,44 @@ export default class Devices extends Component {
         // request all user devies from backend
         request({ serviceName: 'user', functionName: 'getDevices', payload: payload })
             .then(response => {
+
+                const devices = response.reduce((acc, device) => {
+                    return ({ ...acc, [device.id]: device })
+                }, {})
+
                 // stop loading and set page devices to fetched devices
-                this.setState({ devices: response, loading: false })
+                this.setState({ devices: devices, loading: false })
+
+                setTimeout(() => {
+                    this.getLastReadings()
+                }, 0)
+
+            })
+            .catch(error => {
+                // stop loading and show error
+                this.setState({ loading: false, error: error })
+            })
+    }
+
+    getLastReadings = () => {
+        // get all device ids
+        const deviceIds = Object.keys(this.state.devices)
+        // set request device ids to get all devies last readings
+        const payload = { id: deviceIds }
+        // request all last readings  from backend
+        request({
+            serviceName: 'device',
+            functionName: 'getLastReadings',
+            payload: payload,
+        })
+            .then(response => {
+                let devices = this.state.devices
+                response.map(reading => {
+                    if (devices[reading.deviceId]) {
+                        devices[reading.deviceId].lastReading = reading
+                    }
+                })
+                this.setState({ device: devices })
             })
             .catch(error => {
                 // stop loading and show error
@@ -37,7 +73,8 @@ export default class Devices extends Component {
 
     renderDeviceCards = () => {
         return (
-            this.state.devices.map(device => {
+            Object.keys(this.state.devices).map(deviceId => {
+                const device = this.state.devices[deviceId]
                 if (device.deviceState === 'active') {
                     return (
                         <DeviceCard key={device.id} {...device} />

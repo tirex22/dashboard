@@ -42,6 +42,11 @@
     font-weight: 700;
 }
 
+.device-card .device-header .bad{
+    color: rgb(255, 68, 68);
+    font-weight: 700;
+}
+
 .device-card .device-info-container{
     display: flex;
     /* border-bottom: solid 0.5px #e6e6e6; */
